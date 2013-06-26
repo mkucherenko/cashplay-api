@@ -9,7 +9,8 @@
 ```json
 {
   "home_path":"/mobile/home?game_id=:game_id&lat=:gps_lat&lng=:gps_lng",
-  "match_result_path":"/mobile/matches/:match_id/result"
+  "match_result_path":"/mobile/matches/:match_id/result",
+  "prolong_result_path":"/mobile/matches/:match_id/prolong"
 }
 ```
 
@@ -27,7 +28,12 @@ You must trigger cashplay protocol to switch control back to app. Part of this u
 
 Result until is formated date time in iso 8601, that specify timestamp, until client must send result, otherwise his score is 0.
 
-`cashplay://play?match_id=1&result_until=2013-06-25T14%3A34%3A24%2B02%3A00&secret=9rUZES0nxJmxRDQaWG616v0eIEVFW7sxZqCgpWklAbIGzD5aZxiw`
+```
+cashplay://play?
+  match_id=1&
+  result_until=2013-06-25T14%3A34%3A24%2B02%3A00&
+  secret=9rUZES0nxJmxRDQaWG616v0eIEVFW7sxZqCgpWklAbIGzD5aZxiw
+```
 
 ## Post results
 
@@ -46,3 +52,19 @@ match_score[score]=forfeit&
 match_score[secret]=9rUZES0nxJmxRDQaWG616v0eIEVFW7sxZqCgpWklAbIGzD5aZxiw
 ```
 
+## Prolong post result
+
+If mobile application crash or gaming time exceed timestamp of result until time, you can prolong this timestamp.
+
+### Request
+
+`PUT /mobile/matchs/1/prolong`
+
+### Response
+
+```
+cashplay://play?
+  match_id=1&
+  result_until=2013-06-25T15%3A34%3A24%2B02%3A00&
+  secret=9rUZES0nxJmxRDQaWG616v0eIEVFW7sxZqCgpWklAbIGzD5aZxiw
+```
