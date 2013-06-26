@@ -9,8 +9,8 @@
 ```json
 {
   "home_path":"/mobile/home?game_id=:game_id&lat=:gps_lat&lng=:gps_lng",
-  "match_result_path":"/mobile/matches/:match_id/result",
-  "prolong_result_path":"/mobile/matches/:match_id/prolong"
+  "match_prolong_path":"/mobile/matches/:match_id/prolong",
+  "match_result_path":"/mobile/matches/:match_id/result"
 }
 ```
 
