@@ -55,12 +55,13 @@ match_score[secret]=9rUZES0nxJmxRDQaWG616v0eIEVFW7sxZqCgpWklAbIGzD5aZxiw
 ## Prolong post result
 
 If mobile application crash or gaming time exceed timestamp of result until time, you can prolong this timestamp.
+Response should be redirect back to application.
 
 ### Request
 
 `PUT /mobile/matchs/1/prolong`
 
-### Response
+### Response - Success
 
 ```
 cashplay://play?
@@ -68,3 +69,7 @@ cashplay://play?
   result_until=2013-06-25T15%3A34%3A24%2B02%3A00&
   secret=9rUZES0nxJmxRDQaWG616v0eIEVFW7sxZqCgpWklAbIGzD5aZxiw
 ```
+
+### Response - Failure
+
+`cashplay://cannot_prolong_match`
